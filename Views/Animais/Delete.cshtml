@@ -1,0 +1,52 @@
+﻿
+@model SistemaAdocaoAnimais.Models.Animal
+
+@{
+    ViewData["Title"] = "Excluir Animal";
+}
+
+<div class="container py-4">
+    <h1>Excluir Animal</h1>
+
+    <div class="alert alert-warning mt-3">
+        <strong>Atenção!</strong> Tem certeza de que deseja excluir este animal?
+        Esta ação não poderá ser desfeita.
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Nome</h4>
+
+            <dl class="row mt-3">
+                <dt class="col-sm-4">Espécie</dt>
+                <dd class="col-sm-8">@Model.Especie</dd>
+
+                <dt class="col-sm-4">Raça</dt>
+                <dd class="col-sm-8">
+                    @(string.IsNullOrWhiteSpace(Model.Raca) ? "Não informada" : Model.Raca)
+                </dd>
+
+                <dt class="col-sm-4">Idade</dt>
+                <dd class="col-sm-8">@Model.Idade anos</dd>
+
+                <dt class="col-sm-4">Porte</dt>
+                <dd class="col-sm-8">@Model.Porte</dd>
+
+                <dt class="col-sm-4">Status</dt>
+                <dd class="col-sm-8">@Model.Status</dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit" class="btn btn-danger">
+            Sim, excluir animal
+        </button>
+
+        <a asp-action="Index" class="btn btn-secondary">
+            Cancelar
+        </a>
+    </form>
+</div>
