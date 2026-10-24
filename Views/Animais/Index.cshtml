@@ -65,7 +65,7 @@
                             <td>@(string.IsNullOrWhiteSpace(animal.Raca) ? "Não informada" : animal.Raca)</td>
                             <td>@animal.Idade anos</td>
                             <td>@animal.Porte</td>
-                            <td>@animal.Status</td>
+                            <td><status-badge valor="@animal.Status"></status-badge></td>
                             <td>
                                 <a asp-action="Edit"
                                    asp-route-id="@animal.Id"
