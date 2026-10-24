@@ -20,12 +20,9 @@
 
         <div class="mb-3">
             <label asp-for="Especie" class="form-label">Espécie</label>
-            <select asp-for="Especie" class="form-select">
+            <select asp-for="Especie" class="form-select"
+                    asp-items="@(new SelectList((List<string>)ViewBag.Especies))">
                 <option value="">Selecione</option>
-                <option value="Cachorro">Cachorro</option>
-                <option value="Gato">Gato</option>
-                <option value="Coelho">Coelho</option>
-                <option value="Outro">Outro</option>
             </select>
             <span asp-validation-for="Especie" class="text-danger"></span>
         </div>

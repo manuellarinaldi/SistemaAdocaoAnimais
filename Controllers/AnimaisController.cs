@@ -8,6 +8,12 @@ namespace SistemaAdocaoAnimais.Controllers
 {
     public class AnimaisController : Controller
     {
+
+        private void CarregarOpcoes()
+        {
+            ViewBag.Especies = new List<string> { "Cachorro", "Gato", "Coelho", "Outro" };
+            ViewBag.Portes = new List<string> { "Pequeno", "Médio", "Grande" };
+        }
         private static List<Animal> animais = new List<Animal>();
         private static int proximoId = 1;
 
@@ -31,6 +37,8 @@ namespace SistemaAdocaoAnimais.Controllers
 
         public IActionResult Create()
         {
+            CarregarOpcoes();          
+
             return View();
         }
 
@@ -40,6 +48,8 @@ namespace SistemaAdocaoAnimais.Controllers
         {
             if (!ModelState.IsValid)
             {
+                CarregarOpcoes();          
+
                 return View(animal);
             }
 
@@ -51,27 +61,24 @@ namespace SistemaAdocaoAnimais.Controllers
 
         public IActionResult Edit(int id)
         {
+            
             var animal = animais.FirstOrDefault(a => a.Id == id);
+            if (animal == null) return NotFound();
 
-            if (animal == null)
-            {
-                return NotFound();
-            }
-
+            CarregarOpcoes();          
             return View(animal);
+            
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Animal animal)
         {
-            if (id != animal.Id)
-            {
-                return BadRequest();
-            }
+            if (id != animal.Id) return BadRequest();
 
             if (!ModelState.IsValid)
             {
+                CarregarOpcoes();      
                 return View(animal);
             }
 
