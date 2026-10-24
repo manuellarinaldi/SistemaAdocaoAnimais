@@ -175,7 +175,7 @@ O campo de texto envia um `GET` com o parâmetro `pesquisa`. O botão **Limpar**
 
 ### 7.3 Cadastro (`Create`)
 
-![Cadastro](docs/imagens/cadastro.png)
+![Cadastro](docs/imagens/cadastro-validacao.png)
 
 Formulário para cadastrar um novo animal com nome, espécie, raça, idade, data de entrada, porte e status. Após salvar, o usuário é redirecionado para a listagem.
 
