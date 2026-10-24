@@ -4,7 +4,7 @@
 **Checkpoint 2 – ASP.NET Core MVC**
 **Professor:**  Marcel Stefan Wagner
 
-## Integrantes
+## Integrante
 
 | Nome completo | RM |
 |---|---|
